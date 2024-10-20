@@ -13,6 +13,8 @@ spec:
       labels:
         app: flask-app
     spec:
+      nodeSelector: 
+        kubernetes.io/role: worker
       containers:
       - name: flask-app
         image: aseilhamid/flaskapp:latest
@@ -27,7 +29,7 @@ spec:
   type: NodePort
   ports:
   - port: 5000
-    nodePort: 30001
+    nodePort: 30003
   selector:
     app: flask-app
 
